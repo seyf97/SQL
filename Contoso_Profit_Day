@@ -1,0 +1,5 @@
+--Daily Profit for all the data
+SELECT DateKey, (SUM(SalesAmount) - SUM(TotalCost) - SUM(DiscountAmount) - SUM(ReturnAmount)) AS 'Profit'
+FROM dbo.FactSales
+GROUP BY DateKey
+ORDER BY DateKey ASC
