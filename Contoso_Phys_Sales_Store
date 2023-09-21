@@ -1,0 +1,13 @@
+--Obtaining Sales per Store from the Contoso DB
+
+WITH a AS(
+SELECT d.StoreKey, SUM(s.SalesQuantity) as 'Total Physical Sales'
+FROM dbo.FactSales s
+INNER JOIN dbo.DimStore d
+ON s.StoreKey = d.StoreKey
+GROUP BY d.StoreKey)
+
+SELECT b.StoreName, a.[Total Physical Sales]
+FROM dbo.DimStore b
+INNER JOIN a
+ON a.StoreKey = b.StoreKey
