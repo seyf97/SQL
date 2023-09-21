@@ -1,0 +1,7 @@
+--Customer per Country
+SELECT g.RegionCountryName as 'Country', COUNT(g.RegionCountryName) as 'Num of Customers'
+FROM dbo.DimCustomer c
+INNER JOIN dbo.DimGeography g
+ON c.GeographyKey = g.GeographyKey
+WHERE g.RegionCountryName IS NOT NULL
+GROUP BY g.RegionCountryName
