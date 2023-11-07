@@ -1,6 +1,6 @@
 -- Top items sold and their respective categories
 
-```sql
+```SQL
 SELECT i.product_id, SUM(order_item_id) as total_amount_sold, n.product_category_name_english
 FROM olist_products_dataset p
 INNER JOIN olist_order_items_dataset i 
