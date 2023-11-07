@@ -1,6 +1,5 @@
 -- Top items sold and their respective categories
 
-```sql
 SELECT i.product_id, SUM(order_item_id) as total_amount_sold, n.product_category_name_english
 FROM olist_products_dataset p
 INNER JOIN olist_order_items_dataset i 
@@ -10,4 +9,3 @@ ON n.product_category_name = p.product_category_name
 GROUP BY i.product_id, n.product_category_name_english
 ORDER BY SUM(order_item_id) DESC
 LIMIT 10
-```
